@@ -1,0 +1,7 @@
+# Ignorar configuraciones de espacio de trabajo que cambian según el dispositivo
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+
+# Opcional: Si no quieres sincronizar los plugins instalados (recomendado para que el iPhone no sufra)
+.obsidian/plugins/
+.obsidian/themes/
