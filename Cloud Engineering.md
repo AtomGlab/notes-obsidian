@@ -54,7 +54,11 @@ Capacidad de:
 - screenshots o diagramas
 - quizá blog posts cortos (“cómo hice X en AWS”)
 
+
+
+
+
+  
 ### Resources:
 
 https://portfolio-adrianriera.com/
-
