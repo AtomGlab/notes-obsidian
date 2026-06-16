@@ -1,10 +1,9 @@
-Linux, Git
+Julio 2026: Linux, Git 
 
 ### Certifications to Get:
 
 Aws -> [[Solutions Architect Associate]] 
 HashiCorp -> [[Terraform Associate 004]]
-
 
 
 ### Portfolio Personal Desplegado en AWS con CI/CD
