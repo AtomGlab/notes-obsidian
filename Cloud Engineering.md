@@ -2,10 +2,10 @@ Julio 2026: Linux, Git
 
 ### Certifications to Get:
 
-Aws -> [[Solutions Architect Associate]] 
+ Agosto/noviembre 2026 -> [[Solutions Architect Associate]]  
 HashiCorp -> [[Terraform Associate 004]]
 
-
+Objetivo portfolio noviembte 2026
 ### Portfolio Personal Desplegado en AWS con CI/CD
 
 Portfolio personal desplegado automáticamente en AWS con S3 para almacenamiento, Route 53 para gestionar el dominio, CloudFront para distribución global y HTTPS gestionado por ACM.  
