@@ -3,5 +3,5 @@ As of today, I’m trying to be more consistent with having conversations with A
 March 2027 - September 2027
 Achieve a solid B2 in Home
 
-September 2027 - September 2028
+Jauary 2027 -  2028
 enroll in a real academy and get the C1 certifcation. 
