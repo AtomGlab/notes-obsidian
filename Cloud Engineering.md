@@ -1,6 +1,6 @@
-Julio 2026: Linux, Git 
+[[Roadmap Cloud]]
 
-Roadmap Cloud 
+Julio 2026: [[Guía Linux & Git]]
 ### Certifications to Get:
 
  Agosto/noviembre 2026 -> [[Solutions Architect Associate]]  
