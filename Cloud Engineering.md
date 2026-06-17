@@ -49,16 +49,11 @@ Capacidad de:
     - “qué pasa si Lambda falla”
     - “cómo escalas esto a 1M usuarios”
     - “qué coste tiene esto”
-    
+
 - README muy bien explicado
 - screenshots o diagramas
 - quizá blog posts cortos (“cómo hice X en AWS”)
 
-
-
-
-
-  
 ### Resources:
 
 https://portfolio-adrianriera.com/
