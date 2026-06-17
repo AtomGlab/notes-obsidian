@@ -242,3 +242,778 @@ El proceso: abres el archivo, decides qué contenido se queda (puede ser uno, el
 # Resumen de prioridad práctica
 
 Si tuvieras que ordenar por “qué se usa más a diario” una vez estés trabajando en los proyectos del portfolio: `cd`/`ls`/`find` y `tail -f`/`grep`/`journalctl -u -f` para depurar son lo que tocarás constantemente; `chmod`/`chown` aparecerán sobre todo al configurar SSH y permisos de scripts; `systemctl status` será tu primer comando reflejo cuando algo no arranque; y en Git, el ciclo `branch → commits atómicos con Conventional Commits → rebase interactivo para limpiar → Pull Request → merge` será literalmente tu flujo de trabajo en cada uno de los tres proyectos del portfolio.
+
+
+
+# Ejercicios prácticos: Linux y Git
+
+Cómo usar este documento: haz cada bloque en tu terminal real, sin mirar la guía anterior salvo que te quedes completamente atascado. Las soluciones están todas al final, separadas por sección — resuélvelos primero, revisa después. El objetivo no es acertar a la primera, es notar en qué momento dudas, porque eso es justo lo que necesitas reforzar.
+
+Algunos ejercicios requieren que prepares un escenario antes (crear archivos, un repo, etc.) — esa preparación está incluida en el propio ejercicio.
+
+---
+
+## BLOQUE 1 — Navegación de filesystem
+
+**1.1** Crea esta estructura de directorios en tu home con un solo comando (pista: `mkdir -p`):
+
+```
+proyecto/
+  src/
+  logs/
+  config/
+```
+
+**1.2** Dentro de `proyecto/logs/`, crea tres archivos vacíos llamados `app.log`, `error.log` y `access.log` con un único comando.
+
+**1.3** Usa `find` para localizar, dentro de `proyecto/`, todos los archivos que terminen en `.log`.
+
+**1.4** Usa `find` para localizar todos los archivos modificados en el último minuto dentro de `proyecto/` (útil para detectar qué se ha tocado recientemente).
+
+**1.5** Desde tu home, navega a `proyecto/src` usando una ruta relativa, y luego vuelve a tu home usando `cd` sin escribir la ruta completa (pista: hay un atajo de un solo carácter).
+
+---
+
+## BLOQUE 2 — Permisos (chmod, chown, umask)
+
+**2.1** Crea un archivo llamado `secreto.txt`. Compruébalo con `ls -l` y dime qué permisos tiene por defecto.
+
+**2.2** Cambia los permisos de `secreto.txt` a que solo tú puedas leerlo y escribirlo, nadie más pueda hacer nada (un solo valor octal).
+
+**2.3** Crea un script `script.sh` con el contenido `echo "hola"`. Intenta ejecutarlo con `./script.sh`. ¿Qué error obtienes? Arréglalo con chmod en modo simbólico (no octal).
+
+**2.4** ¿Qué comando usarías para comprobar tu umask actual? Cámbialo temporalmente a `077` y crea un archivo nuevo. Comprueba con `ls -l` qué permisos tiene.
+
+**2.5** Sin ejecutarlo, dime qué hace exactamente este comando y por qué es peligroso si se usa en el sitio equivocado:
+
+```
+chmod -R 777 /
+```
+
+---
+
+## BLOQUE 3 — Gestión de procesos
+
+**3.1** Lanza el comando `sleep 300` en segundo plano (background).
+
+**3.2** Usa `ps aux` junto con `grep` para encontrar el PID de ese proceso `sleep` que acabas de lanzar (sin usar `jobs`).
+
+**3.3** Termina ese proceso usando `kill` de forma "educada" (sin forzar).
+
+**3.4** Lanza otro `sleep 300 &`, y esta vez mátalo de forma forzada porque imagina que no responde al intento anterior. ¿Qué flag/número de señal usas?
+
+**3.5** Explica con tus palabras la diferencia entre lo que ha pasado en 3.3 y en 3.4 a nivel del proceso, no solo del comando.
+
+---
+
+## BLOQUE 4 — Redirecciones y pipes
+
+**4.1** Genera un archivo `numeros.txt` con los números del 1 al 20, cada uno en una línea (pista: `seq`).
+
+**4.2** Usando pipes, cuenta cuántas líneas de `numeros.txt` contienen un dígito par sin escribir un script, solo encadenando comandos (pista: `grep -E` con un patrón de números pares, y `wc -l`).
+
+**4.3** Ejecuta un comando que falle a propósito (por ejemplo `ls /carpeta/que/no/existe`) y redirige SOLO el error a un archivo llamado `errores.txt`, dejando que si hubiera salida normal, se siga viendo en pantalla.
+
+**4.4** Ahora redirige tanto la salida normal como los errores de ese mismo comando fallido a un único archivo `todo.txt`, sin que se muestre nada en pantalla.
+
+**4.5** Crea un archivo `lista.txt` con varias líneas, algunas repetidas. Encadena comandos para mostrar solo las líneas únicas, ordenadas (pista: `sort` y `uniq`).
+
+---
+
+## BLOQUE 5 — Edición con vim
+
+Haz estos pasos en orden, dentro del propio editor, sin salir entre paso y paso salvo que se indique:
+
+**5.1** Abre con vim un archivo nuevo llamado `notas.txt`.
+
+**5.2** Entra en modo inserción y escribe tres líneas: "primera", "segunda", "tercera".
+
+**5.3** Sin salir de vim, guarda el archivo pero NO cierres el editor.
+
+**5.4** Borra la línea "segunda" usando el comando de borrado de línea de vim.
+
+**5.5** Pega de vuelta esa línea borrada justo donde estaba.
+
+**5.6** Guarda y cierra en un solo comando.
+
+**5.7** Abre de nuevo el archivo, ve directamente a la última línea con un solo comando de vim, y luego al principio del archivo con otro.
+
+---
+
+## BLOQUE 6 — Gestión de paquetes (apt)
+
+**6.1** ¿Qué comando ejecutarías siempre antes de instalar cualquier paquete nuevo, y por qué es importante no saltárselo?
+
+**6.2** Comprueba si tienes instalado el paquete `tree`. Si no lo tienes, instálalo.
+
+**6.3** Usa `tree` para ver la estructura de tu carpeta `proyecto/` del bloque 1.
+
+**6.4** Lista todos los paquetes que tienes instalados y cuenta cuántos son con un pipe (sin contarlos a mano).
+
+---
+
+## BLOQUE 7 — Variables de entorno
+
+**7.1** Muestra el valor actual de tu variable `PATH`.
+
+**7.2** Crea una variable de entorno llamada `MI_PROYECTO` con el valor `cloud-portfolio`, solo para la sesión actual.
+
+**7.3** Comprueba que existe usando `echo`.
+
+**7.4** Abre una nueva pestaña/sesión de terminal y comprueba si `MI_PROYECTO` sigue existiendo ahí. ¿Por qué pasa esto?
+
+**7.5** Haz que `MI_PROYECTO` persista en todas tus sesiones futuras (pista: tienes que tocar tu archivo de configuración del shell, `.bashrc` o `.zshrc` según cuál uses, y luego recargarlo sin cerrar la terminal).
+
+---
+
+## BLOQUE 8 — Logs: tail, grep
+
+**8.1** Genera un archivo de log simulado con 100 líneas, donde unas 10 contengan la palabra "ERROR" en posiciones aleatorias del archivo (puedes hacerlo manualmente o con un bucle simple, tú decides el método).
+
+**8.2** Muestra solo las últimas 15 líneas de ese archivo.
+
+**8.3** Cuenta cuántas líneas contienen "ERROR".
+
+**8.4** Muestra las líneas que contienen "ERROR" pero NO la palabra "critical" (asumiendo que añades alguna línea con ambas palabras para hacer la prueba real).
+
+**8.5** Abre dos terminales. En la primera, deja corriendo `tail -f` sobre el archivo. En la segunda, añade una línea nueva al archivo con `echo "nueva linea ERROR" >> archivo.log`. ¿Qué ves en la primera terminal?
+
+---
+
+## BLOQUE 9 — systemd y journalctl
+
+Nota: para hacer esto de verdad necesitas un servicio systemd real corriendo. Si tu Mac no usa systemd nativamente (macOS no lo usa, es exclusivo de Linux), haz este bloque conceptualmente respondiendo con precisión, y repítelo de forma práctica en cuanto tengas tu primera EC2 — es importante que no te lo saltes del todo.
+
+**9.1** ¿Qué comando usarías para ver el estado actual de un servicio llamado `nginx`?
+
+**9.2** Ese comando te dice que el servicio está en estado "failed". ¿Cuál es tu siguiente comando para investigar por qué, y qué información concreta esperas encontrar ahí?
+
+**9.3** Quieres ver únicamente los logs de ese servicio de la última hora. Escribe el comando exacto.
+
+**9.4** Quieres seguir los logs de ese servicio en tiempo real mientras pruebas algo. Escribe el comando.
+
+**9.5** Has corregido el problema y necesitas reiniciar el servicio. ¿Qué comando usas, y si además modificaste el propio archivo de unit (`.service`), qué comando adicional necesitas ejecutar antes de reiniciar?
+
+**9.6** Un compañero te dice "el servicio me da código de salida 203/EXEC". Sin buscarlo, explica con tus palabras qué tres causas típicas podrían estar detrás.
+
+---
+
+## BLOQUE 10 — Escenario integrador de Linux (mezcla todo lo anterior)
+
+Imagina esta situación real: tienes una aplicación corriendo como servicio systemd llamado `miapp`. Un usuario te dice que la aplicación "no responde". Tienes acceso SSH al servidor.
+
+Describe, comando por comando, exactamente qué harías desde que te conectas hasta que identificas la causa probable. Da por hecho que en algún punto vas a necesitar mirar permisos de algún archivo de configuración, y que en algún punto vas a necesitar matar un proceso colgado que no responde a una señal normal.
+
+---
+
+# GIT
+
+## BLOQUE 11 — Branching básico
+
+**11.1** Crea un repositorio nuevo llamado `practica-git`, entra en él, y haz un primer commit con un archivo `README.md` que contenga solo el título del proyecto.
+
+**11.2** Crea una rama llamada `feature/login` y cámbiate a ella en un solo comando.
+
+**11.3** Dentro de esa rama, crea un archivo `login.txt` con el contenido "pantalla de login" y commitea con un mensaje en formato Conventional Commits.
+
+**11.4** Vuelve a `main` y comprueba que `login.txt` no existe ahí (porque sigue solo en la rama feature).
+
+**11.5** Lista todas las ramas que tienes, marcando cuál es la actual.
+
+---
+
+## BLOQUE 12 — Conflictos de merge (provócalo tú mismo)
+
+**12.1** En `main`, edita `README.md` añadiendo la línea "Versión 1.0" y commitea.
+
+**12.2** Cámbiate a `feature/login` y edita TÚ TAMBIÉN `README.md`, pero añadiendo en el mismo sitio la línea "Versión beta" en vez de "Versión 1.0". Commitea.
+
+**12.3** Vuelve a `main` e intenta hacer `git merge feature/login`. Deberías obtener un conflicto. Pégame (o anota para ti) exactamente qué aspecto tienen los marcadores de conflicto en el archivo.
+
+**12.4** Resuelve el conflicto decidiendo quedarte con ambas líneas, una debajo de la otra. Termina el merge correctamente.
+
+**12.5** Comprueba con `git log --oneline --graph` cómo quedó el historial. ¿Ves el commit de merge?
+
+---
+
+## BLOQUE 13 — Rebase y su diferencia práctica con merge
+
+**13.1** Crea una nueva rama `feature/registro` desde `main`. Haz dos commits separados en ella: uno que añade `registro.txt` con "formulario de registro", y otro que añade una segunda línea a ese mismo archivo "validación de email".
+
+**13.2** Mientras tanto, en `main`, haz un commit que añada una línea nueva a `README.md` ("Versión 2.0").
+
+**13.3** Desde `feature/registro`, haz `git rebase main`. Observa qué pasa con tus commits (pista: usa `git log --oneline` antes y después para comparar).
+
+**13.4** Ahora deshaz mentalmente lo anterior (o créate una rama nueva idéntica desde cero) y en vez de rebase, haz `git merge main` desde `feature/registro`. Compara el resultado de `git log --oneline --graph` entre ambos métodos.
+
+**13.5** Explica con tus propias palabras: si ambas ramas (`feature/registro` original y esta copia) llegaran al mismo resultado final de archivos, ¿qué diferencia exacta hay en el historial entre haber usado rebase o merge?
+
+**13.6** Provócate un conflicto durante un rebase (edita la misma línea de un archivo en ambas ramas antes de rebasar) y practica el flujo completo: resolver, `git add`, `git rebase --continue`.
+
+---
+
+## BLOQUE 14 — Rebase interactivo (limpieza de commits)
+
+**14.1** En una rama nueva, haz 4 commits "sucios" a propósito: "wip", "arreglo", "wip de nuevo", "ya funciona", cada uno tocando el mismo archivo con cambios mínimos.
+
+**14.2** Usa `git rebase -i HEAD~4` y combina (squash) los 4 commits en uno solo, con un mensaje final limpio en formato Conventional Commits.
+
+**14.3** Comprueba con `git log --oneline` que ahora solo hay un commit nuevo en vez de 4.
+
+---
+
+## BLOQUE 15 — Conventional Commits aplicados
+
+Sin mirar la guía anterior, escribe el mensaje de commit correcto en formato Conventional Commits para cada una de estas situaciones:
+
+**15.1** Has añadido un endpoint nuevo a una API que gestiona usuarios.
+
+**15.2** Has corregido un bug donde la API devolvía error 500 si el campo email venía vacío.
+
+**15.3** Has actualizado solo el README explicando cómo desplegar el proyecto.
+
+**15.4** Has subido la versión de una dependencia (por ejemplo boto3) sin cambiar nada de tu código.
+
+**15.5** Has reorganizado el código de un módulo de autenticación moviéndolo a otro archivo, sin cambiar su comportamiento.
+
+**15.6** Has añadido un pipeline de GitHub Actions que corre los tests automáticamente.
+
+**15.7** Has hecho un cambio que rompe la compatibilidad con la versión anterior de tu API (cambias el formato de respuesta de XML a JSON).
+
+---
+
+## BLOQUE 16 — Escenario integrador de Git (mezcla todo lo anterior)
+
+Estás trabajando en tu proyecto de portfolio. Llevas tres días en una rama `feature/contador-visitas` con 12 commits, varios de ellos con mensajes como "prueba", "arreglo de nuevo", "funciona ahora sí". Mientras tú trabajabas, en `main` se han añadido cambios al README por otra razón (imagina que los añadiste tú mismo simulando ser "otra persona", para tener algo real con lo que practicar).
+
+Describe paso a paso qué harías para: limpiar tu historial de los 12 commits dejándolo en 3-4 commits con mensajes en Conventional Commits que tengan sentido, actualizar tu rama con los cambios que hay en `main` sin perder tu trabajo, resolver cualquier conflicto que surja, y finalmente dejarlo listo para abrir un Pull Request con una historia legible.
+
+---
+
+---
+
+# SOLUCIONES
+
+## Bloque 1 — Navegación de filesystem
+
+**1.1**
+
+```
+mkdir -p proyecto/{src,logs,config}
+```
+
+El flag `-p` crea también los directorios padre si no existen, y la sintaxis `{src,logs,config}` expande a tres rutas a la vez.
+
+**1.2**
+
+```
+touch proyecto/logs/{app.log,error.log,access.log}
+```
+
+**1.3**
+
+```
+find proyecto/ -name "*.log"
+```
+
+**1.4**
+
+```
+find proyecto/ -mmin -1
+```
+
+`-mmin -1` significa "modificado hace menos de 1 minuto". `-mtime -1` sería "menos de 1 día".
+
+**1.5**
+
+```
+cd proyecto/src
+cd ~
+```
+
+El `~` (tilde) es el atajo universal a tu home, sin importar dónde estés.
+
+---
+
+## Bloque 2 — Permisos
+
+**2.1** Por defecto, en la mayoría de sistemas con umask 022, un archivo nuevo creado con `touch` sale en `644` (rw-r--r--).
+
+**2.2**
+
+```
+chmod 600 secreto.txt
+```
+
+**2.3** El error es `Permission denied`, porque al crear el script no tiene permiso de ejecución (sale en 644, sin la `x`). Se arregla con:
+
+```
+chmod u+x script.sh
+```
+
+(modo simbólico: añade ejecución solo al usuario propietario)
+
+**2.4**
+
+```
+umask
+umask 077
+touch archivo_estricto.txt
+ls -l archivo_estricto.txt
+```
+
+Con umask 077 el archivo nuevo sale en `600` en vez del `644` habitual.
+
+**2.5** Este comando cambiaría recursivamente TODOS los archivos y directorios del sistema (empezando en la raíz `/`) a permisos 777, es decir, lectura/escritura/ejecución para absolutamente cualquier usuario. Es catastrófico porque rompe la seguridad de todo el sistema (cualquiera puede modificar binarios del sistema, archivos de configuración, claves) y además probablemente deja el sistema inestable o inutilizable, ya que muchos programas (especialmente los relacionados con SSH) rechazan funcionar si detectan permisos demasiado abiertos en archivos sensibles.
+
+---
+
+## Bloque 3 — Procesos
+
+**3.1**
+
+```
+sleep 300 &
+```
+
+**3.2**
+
+```
+ps aux | grep sleep
+```
+
+(el PID aparece en la segunda columna de la salida)
+
+**3.3**
+
+```
+kill <PID>
+```
+
+Por defecto manda SIGTERM (señal 15), pidiendo al proceso que termine de forma ordenada.
+
+**3.4**
+
+```
+kill -9 <PID>
+```
+
+o equivalentemente `kill -SIGKILL <PID>`. La señal 9 es SIGKILL, fuerza la terminación inmediata sin dar oportunidad al proceso de limpiar nada.
+
+**3.5** En 3.3, el proceso recibe la petición de cerrarse y, si está bien programado, puede ejecutar lógica de cierre (liberar recursos, cerrar conexiones, guardar estado) antes de terminar realmente. En 3.4, el kernel termina el proceso de forma inmediata sin pasar ningún aviso al propio proceso — no hay oportunidad de limpieza, lo cual puede dejar archivos a medio escribir o conexiones de red colgadas. `sleep` no tiene estado que cuidar, así que en este ejemplo concreto no notarás diferencia visible, pero en una aplicación real (por ejemplo una Lambda o un servidor web) la diferencia es crítica.
+
+---
+
+## Bloque 4 — Redirecciones y pipes
+
+**4.1**
+
+```
+seq 1 20 > numeros.txt
+```
+
+**4.2**
+
+```
+grep -E "[0-9]*[02468]$" numeros.txt | wc -l
+```
+
+(el patrón busca números que terminan en cifra par)
+
+**4.3**
+
+```
+ls /carpeta/que/no/existe 2> errores.txt
+```
+
+**4.4**
+
+```
+ls /carpeta/que/no/existe &> todo.txt
+```
+
+o de forma equivalente y más explícita: `ls /carpeta/que/no/existe > todo.txt 2>&1`
+
+**4.5**
+
+```
+sort lista.txt | uniq
+```
+
+---
+
+## Bloque 5 — vim
+
+**5.1** `vim notas.txt`
+
+**5.2** Pulsas `i` para entrar en modo inserción, escribes las tres líneas con Enter entre cada una, y pulsas `Esc` para volver a modo normal.
+
+**5.3** `:w` (guarda sin salir)
+
+**5.4** Con el cursor en la línea "segunda", pulsas `dd`
+
+**5.5** Mueves el cursor a donde estaba esa línea y pulsas `p` (pega después de la línea actual) o `P` (pega antes)
+
+**5.6** `:wq`
+
+**5.7** Para ir al final: `G` (mayúscula). Para ir al principio: `gg`
+
+---
+
+## Bloque 6 — apt
+
+**6.1** Siempre `sudo apt update` antes de instalar nada. Es importante porque refresca el índice local de paquetes disponibles y sus versiones; si no lo haces, `apt` puede intentar instalar una versión que ya no existe en los repositorios o perderte actualizaciones de seguridad recientes.
+
+**6.2**
+
+```
+apt list --installed | grep tree
+sudo apt install tree
+```
+
+**6.3**
+
+```
+tree proyecto/
+```
+
+**6.4**
+
+```
+apt list --installed | wc -l
+```
+
+---
+
+## Bloque 7 — Variables de entorno
+
+**7.1** `echo $PATH`
+
+**7.2** `export MI_PROYECTO=cloud-portfolio`
+
+**7.3** `echo $MI_PROYECTO`
+
+**7.4** No existirá en la nueva sesión. `export` solo afecta a la sesión de shell actual y a los procesos hijos que lance desde ahí — no se propaga a otras sesiones ni persiste tras cerrar la terminal, porque vive solo en memoria del proceso del shell.
+
+**7.5**
+
+```
+echo 'export MI_PROYECTO=cloud-portfolio' >> ~/.bashrc
+source ~/.bashrc
+```
+
+(o `~/.zshrc` si usas zsh, que es el shell por defecto en Mac desde hace varias versiones)
+
+---
+
+## Bloque 8 — tail, grep
+
+**8.1** Una forma simple:
+
+```
+for i in $(seq 1 100); do
+  if [ $((RANDOM % 10)) -eq 0 ]; then
+    echo "linea $i ERROR algo fallo"
+  else
+    echo "linea $i todo normal"
+  fi
+done > simulado.log
+```
+
+**8.2**
+
+```
+tail -n 15 simulado.log
+```
+
+**8.3**
+
+```
+grep -c "ERROR" simulado.log
+```
+
+(o `grep "ERROR" simulado.log | wc -l`, equivalente)
+
+**8.4**
+
+```
+grep "ERROR" simulado.log | grep -v "critical"
+```
+
+**8.5** En la primera terminal verás aparecer en tiempo real la nueva línea justo cuando la añades desde la segunda terminal, sin necesidad de volver a ejecutar el comando. Esto es exactamente el comportamiento que usarás constantemente para depurar una aplicación mientras la pruebas en otra ventana.
+
+---
+
+## Bloque 9 — systemd / journalctl
+
+**9.1** `systemctl status nginx`
+
+**9.2** `journalctl -u nginx -n 50` (o sin `-n`, para ver todo). Esperas encontrar el motivo concreto del fallo: un error de configuración, un puerto ya en uso, un permiso denegado, o un código de salida específico del proceso.
+
+**9.3** `journalctl -u nginx --since "1 hour ago"`
+
+**9.4** `journalctl -u nginx -f`
+
+**9.5** `systemctl restart nginx`. Si modificaste el archivo `.service`, primero necesitas `sudo systemctl daemon-reload` para que systemd relea la definición del servicio, y solo entonces `systemctl restart nginx`.
+
+**9.6** Las tres causas típicas: la ruta del binario indicada en `ExecStart` está mal escrita o no existe; el archivo no tiene permiso de ejecución (falta `chmod +x`); o si es un script, le falta la línea shebang al principio (`#!/bin/bash`, por ejemplo) y el sistema no sabe con qué intérprete ejecutarlo.
+
+---
+
+## Bloque 10 — Escenario integrador Linux
+
+Un flujo razonable y completo sería:
+
+1. `ssh usuario@servidor` para conectar.
+2. `systemctl status miapp` — primer comando reflejo, te dice de inmediato si el servicio está activo, parado, o en estado failed, y muestra ya las últimas líneas de log directamente en la salida.
+3. Si dice "failed" o "inactive", `journalctl -u miapp -n 100` para ver el contexto completo de qué pasó antes de caer.
+4. Si en los logs aparece algo como "permission denied" al intentar leer un archivo de configuración, revisas con `ls -l /ruta/del/archivo` los permisos, y los corriges con `chmod`/`chown` según corresponda.
+5. Si en cambio los logs sugieren que el proceso sigue "vivo" pero colgado sin responder (por ejemplo, lleva horas en el mismo punto sin avanzar), localizas el proceso con `ps aux | grep miapp`, intentas primero `kill <PID>` (SIGTERM, educado), esperas unos segundos y compruebas con `ps aux` si ha terminado.
+6. Si sigue ahí después de SIGTERM, usas `kill -9 <PID>` para forzar la terminación.
+7. Una vez limpio, `systemctl restart miapp` (con `daemon-reload` antes si tocaste el unit file).
+8. Verificas con `systemctl status miapp` que ahora está activo, y con `journalctl -u miapp -f` sigues los logs en tiempo real un rato para confirmar que se comporta bien antes de darlo por resuelto.
+
+---
+
+## Bloque 11 — Branching básico
+
+**11.1**
+
+```
+mkdir practica-git && cd practica-git
+git init
+echo "# Práctica Git" > README.md
+git add README.md
+git commit -m "docs: initial commit with project title"
+```
+
+**11.2**
+
+```
+git checkout -b feature/login
+```
+
+(o `git switch -c feature/login`, sintaxis más moderna)
+
+**11.3**
+
+```
+echo "pantalla de login" > login.txt
+git add login.txt
+git commit -m "feat(login): add login screen placeholder"
+```
+
+**11.4**
+
+```
+git checkout main
+ls
+```
+
+`login.txt` no aparecerá, porque solo existe en el historial de `feature/login`.
+
+**11.5**
+
+```
+git branch
+```
+
+La rama actual aparece marcada con un asterisco `*` delante.
+
+---
+
+## Bloque 12 — Conflictos de merge
+
+**12.1**
+
+```
+git checkout main
+echo "Versión 1.0" >> README.md
+git add README.md
+git commit -m "docs: add version 1.0 note"
+```
+
+**12.2**
+
+```
+git checkout feature/login
+echo "Versión beta" >> README.md
+git add README.md
+git commit -m "docs: add beta version note"
+```
+
+**12.3**
+
+```
+git checkout main
+git merge feature/login
+```
+
+El archivo `README.md` mostrará algo como:
+
+```
+<<<<<<< HEAD
+Versión 1.0
+=======
+Versión beta
+>>>>>>> feature/login
+```
+
+**12.4** Editas el archivo manualmente dejando ambas líneas (borrando los marcadores `<<<<<<<`, `=======`, `>>>>>>>`):
+
+```
+Versión 1.0
+Versión beta
+```
+
+Luego:
+
+```
+git add README.md
+git commit -m "merge: resolve version conflict keeping both notes"
+```
+
+**12.5**
+
+```
+git log --oneline --graph
+```
+
+Sí, verás un commit de merge explícito que junta ambas ramas — esto es justo la diferencia clave con rebase, que no genera este commit.
+
+---
+
+## Bloque 13 — Rebase vs merge
+
+**13.1**
+
+```
+git checkout main
+git checkout -b feature/registro
+echo "formulario de registro" > registro.txt
+git add registro.txt
+git commit -m "feat(registro): add registration form placeholder"
+echo "validación de email" >> registro.txt
+git add registro.txt
+git commit -m "feat(registro): add email validation note"
+```
+
+**13.2**
+
+```
+git checkout main
+echo "Versión 2.0" >> README.md
+git add README.md
+git commit -m "docs: add version 2.0 note"
+```
+
+**13.3**
+
+```
+git checkout feature/registro
+git log --oneline
+git rebase main
+git log --oneline
+```
+
+Verás que tus dos commits de `feature/registro` ahora aparecen "después" del commit de versión 2.0 de `main` en la historia, como si los hubieras escrito a partir de ahí desde el principio. Los hashes de tus commits habrán cambiado, porque rebase los reescribe.
+
+**13.4**
+
+```
+git checkout main
+git checkout -b feature/registro-merge registro.txt  # o recrea la rama igual que en 13.1 desde antes de rebasar
+git merge main
+git log --oneline --graph
+```
+
+Comparado con el resultado de rebase, aquí verás un commit de merge explícito y las ramas siguen siendo visualmente distinguibles en el `--graph` hasta el punto de unión.
+
+**13.5** Con rebase, la historia final es lineal: parece que escribiste tus commits directamente encima de los últimos cambios de `main`, sin rastro de que hubo divergencia real. Con merge, la historia preserva exactamente cómo ocurrió: que hubo dos líneas de trabajo en paralelo y en qué momento exacto se unieron, mediante un commit de merge explícito. El contenido final de los archivos puede ser idéntico en ambos casos — lo que cambia es si quieres que el historial cuente la verdad cronológica completa, o una versión simplificada y lineal más fácil de leer.
+
+**13.6** Provocar el conflicto: edita la misma línea de `README.md` de forma distinta en `main` y en tu rama antes de rebasar, luego:
+
+```
+git rebase main
+# Git se detiene y avisa del conflicto
+# Edita el archivo a mano resolviendo el conflicto
+git add README.md
+git rebase --continue
+```
+
+Si el rebase tiene más de un commit con el mismo conflicto repetido, este ciclo se repite tantas veces como conflictos surjan.
+
+---
+
+## Bloque 14 — Rebase interactivo
+
+**14.1**
+
+```
+echo "intento 1" > archivo.txt && git add archivo.txt && git commit -m "wip"
+echo "intento 2" >> archivo.txt && git add archivo.txt && git commit -m "arreglo"
+echo "intento 3" >> archivo.txt && git add archivo.txt && git commit -m "wip de nuevo"
+echo "intento 4" >> archivo.txt && git add archivo.txt && git commit -m "ya funciona"
+```
+
+**14.2**
+
+```
+git rebase -i HEAD~4
+```
+
+Se abre un editor con los 4 commits listados, cada uno precedido de `pick`. Cambias los tres últimos de `pick` a `squash` (o su abreviatura `s`), dejando el primero como `pick`:
+
+```
+pick a1b2c3 wip
+squash d4e5f6 arreglo
+squash g7h8i9 wip de nuevo
+squash j1k2l3 ya funciona
+```
+
+Al guardar y cerrar, Git te pide escribir el mensaje final combinado — borras todo y escribes algo como:
+
+```
+feat(archivo): add complete content in single coherent commit
+```
+
+**14.3**
+
+```
+git log --oneline
+```
+
+Deberías ver un único commit nuevo con el mensaje limpio, en vez de los 4 originales.
+
+---
+
+## Bloque 15 — Conventional Commits
+
+**15.1** `feat(users): add endpoint to retrieve user list`
+
+**15.2** `fix(api): handle empty email field to prevent 500 error`
+
+**15.3** `docs: add deployment instructions to README`
+
+**15.4** `chore(deps): bump boto3 to latest version`
+
+**15.5** `refactor(auth): move authentication logic to separate module`
+
+**15.6** `ci: add GitHub Actions workflow to run tests automatically`
+
+**15.7** `feat(api)!: change response format from XML to JSON` (el `!` señala explícitamente un breaking change; también es válido añadir en el cuerpo del commit una línea `BREAKING CHANGE: response format changed from XML to JSON`)
+
+---
+
+## Bloque 16 — Escenario integrador Git
+
+Un flujo razonable:
+
+1. Primero, asegurarte de que tu rama está actualizada localmente con los últimos cambios remotos de ambas ramas: `git fetch origin`.
+2. Limpiar tu propio historial antes de mezclar nada de fuera: `git rebase -i HEAD~12` desde tu rama `feature/contador-visitas`, marcando los commits relevantes como `pick` y combinando (`squash`) los de prueba/arreglo en los commits a los que pertenecen lógicamente, hasta dejar 3-4 commits con sentido, reescribiendo cada mensaje en formato Conventional Commits (por ejemplo: `feat(contador): add DynamoDB table for visit count`, `feat(contador): add Lambda to increment and return count`, `test(contador): add unit tests for counter Lambda`, `docs: document counter architecture in README`).
+3. Una vez tu propia rama está limpia, traer los cambios de `main`: `git checkout main && git pull origin main` para asegurarte de tener la versión más reciente.
+4. Volver a tu rama y traer esos cambios sin perder tu trabajo: `git checkout feature/contador-visitas` y `git rebase main` (preferible a merge aquí, ya que tu rama sigue siendo privada/local y nadie más depende de ella, así que mantener historia lineal es seguro).
+5. Si surge conflicto (por ejemplo, ambos tocasteis el README), Git se detiene en el commit conflictivo: abres el archivo, resuelves manualmente decidiendo qué contenido se queda, `git add README.md`, `git rebase --continue`. Repetir si hay más de un commit con conflicto.
+6. Una vez completado el rebase sin errores, comprobar con `git log --oneline --graph` que la historia queda lineal y legible: tus 3-4 commits limpios, encima de los últimos cambios de `main`.
+7. Subir la rama (con `--force-with-lease` en vez de `--force` a secas, porque has reescrito commits que ya habías subido antes con los mensajes sucios): `git push --force-with-lease origin feature/contador-visitas`.
+8. Abrir el Pull Request: ahora la lista de commits que verá cualquier revisor es coherente, legible, y cuenta una historia clara de cómo se construyó la funcionalidad, en vez de mostrar el proceso real lleno de intentos fallidos.
