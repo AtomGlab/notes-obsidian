@@ -3,3 +3,6 @@ Sometimes love isn't enough, it may hurt but if you actually think and act ratio
 
 16/06/2026
 I'm gloomy today because I received a really impactant and unexpected news, I'm at the moment as an intern at Deloitte as an Abap developer but today my manager told me that I'm not getting hired after the internship because there's no space at the present time , I'm a little bit confused because although I wanted the job but I knew  that I wouldn't last long there because I'm studying to be a cloud engineer, at the moment I'm trying to get the solutions architect associate of aws and working on some projects associated to the cloud.
+
+17/06/2026
+Today I Investigated about cloud engineering/devops and I created a roadmap with the help of Claude
