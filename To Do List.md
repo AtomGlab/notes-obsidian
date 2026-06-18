@@ -1,1 +1,2 @@
 -Borrar productos con entrega programada de Amazon 
+-Rellenar qbid
