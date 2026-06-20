@@ -6,3 +6,5 @@ I'm gloomy today because I received a really impactant and unexpected news, I'm 
 
 17/06/2026
 Today I've been investigating about cloud engineering/devops and I created a roadmap with the help of Claude, I will start learning about linux and git until I solidify my knowledge with exercises, I was thinking about not being hired after the internship and I'm more optimistic than yesterday because I know as a matter of fact that before january of 2028 I will be working as a cloud engineer and If I was hired by deloitte, it would probably delay a lot my career in cloud 
+
+19/06/2026
