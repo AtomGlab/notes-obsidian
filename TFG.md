@@ -344,17 +344,17 @@ Este proyecto aplica el principio de **mínimo privilegio** en todos los compone
 
 Estimación para uso personal con ~1.000 fotos y tráfico bajo (capa gratuita de AWS incluida):
 
-|Servicio|Uso estimado|Coste mensual|
-|---|---|---|
-|Lambda|~10.000 invocaciones/mes|~$0.00 (free tier)|
-|API Gateway|~10.000 requests/mes|~$0.035|
-|S3|~5 GB almacenamiento|~$0.115|
-|DynamoDB|~1 GB, on-demand|~$0.25|
-|CloudFront|~10 GB transferencia|~$0.85|
-|Route 53|1 hosted zone|~$0.50|
-|CloudWatch|Logs básicos|~$0.50|
-|SNS|~100 notificaciones|~$0.00 (free tier)|
-|**TOTAL**||**~$2.25/mes**|
+| Servicio    | Uso estimado             | Coste mensual      |
+| ----------- | ------------------------ | ------------------ |
+| Lambda      | ~10.000 invocaciones/mes | ~$0.00 (free tier) |
+| API Gateway | ~10.000 requests/mes     | ~$0.035            |
+| S3          | ~5 GB almacenamiento     | ~$0.115            |
+| DynamoDB    | ~1 GB, on-demand         | ~$0.25             |
+| CloudFront  | ~10 GB transferencia     | ~$0.85             |
+| Route 53    | 1 hosted zone            | ~$0.50             |
+| CloudWatch  | Logs básicos             | ~$0.50             |
+| SNS         | ~100 notificaciones      | ~$0.00 (free tier) |
+| **TOTAL**   |                          | **~$2.25/mes**     |
 
 > Los costes reales dependen del tráfico. Para un uso real de producción con miles de usuarios, consultar el [AWS Pricing Calculator](https://calculator.aws/).
 
