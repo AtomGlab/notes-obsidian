@@ -84,23 +84,23 @@ Toda la infraestructura está definida como código con Terraform y desplegada a
 
 ## Servicios AWS Utilizados
 
-|Categoría|Servicio|Uso|
-|---|---|---|
-|**Auth**|Amazon Cognito|Autenticación de usuarios + federación con Google|
-|**API**|API Gateway (HTTP API)|Endpoints REST para la aplicación|
-|**Compute**|AWS Lambda (Python 3.12)|Lógica de negocio y análisis de anomalías|
-|**Storage**|Amazon S3|Almacenamiento de fotos y frontend estático|
-|**Database**|Amazon DynamoDB|Metadatos de fotos y estado de alertas|
-|**CDN**|Amazon CloudFront|Distribución global y caché|
-|**DNS**|Amazon Route 53|Gestión del dominio personalizado|
-|**TLS**|AWS Certificate Manager|Certificado HTTPS gratuito|
-|**Seguridad**|AWS IAM|Roles y políticas de mínimo privilegio|
-|**Secretos**|AWS Secrets Manager|Credenciales y configuración sensible|
-|**Observabilidad**|Amazon CloudWatch|Logs centralizados y métricas|
-|**Eventos**|Amazon EventBridge|Scheduler para análisis periódico de logs|
-|**Notificaciones**|Amazon SNS|Alertas de seguridad por email|
-|**IaC**|Terraform|Gestión de toda la infraestructura|
-|**CI/CD**|GitHub Actions|Pipeline de despliegue automatizado|
+| Categoría          | Servicio                 | Uso                                               |
+| ------------------ | ------------------------ | ------------------------------------------------- |
+| **Auth**           | Amazon Cognito           | Autenticación de usuarios + federación con Google |
+| **API**            | API Gateway (HTTP API)   | Endpoints REST para la aplicación                 |
+| **Compute**        | AWS Lambda (Python 3.12) | Lógica de negocio y análisis de anomalías         |
+| **Storage**        | Amazon S3                | Almacenamiento de fotos y fro lo ntend estático   |
+| **Database**       | Amazon DynamoDB          | Metadatos de fotos y estado de alertas            |
+| **CDN**            | Amazon CloudFront        | Distribución global y caché                       |
+| **DNS**            | Amazon Route 53          | Gestión del dominio personalizado                 |
+| **TLS**            | AWS Certificate Manager  | Certificado HTTPS gratuito                        |
+| **Seguridad**      | AWS IAM                  | Roles y políticas de mínimo privileg hl io        |
+| **Secretos**       | AWS Secrets Manager      | Credenciales y configuración sensible             |
+| **Observabilidad** | Amazon CloudWatch        | Logs centralizados y métricas                     |
+| **Eventos**        | Amazon EventBridge       | Scheduler para análisis periódico de logs         |
+| **Notificaciones** | Amazon SNS               | Alertas de seguridad por email                    |
+| **IaC**            | Terraform                | Gestión de toda la infraestructura                |
+| **CI/CD**          | GitHub Actions           | Pipeline de despliegue automatizado               |
 
 ---
 
