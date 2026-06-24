@@ -5,3 +5,5 @@ Achieve a solid B2 in Home
 
 January 2027 - February 2028
 enroll in a real academy and get the C1 certifcation. 
+
+road to pte: [[pte guide]] 
