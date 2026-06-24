@@ -435,7 +435,7 @@ In conclusion, while practical experience undeniably enhances professional compe
 _Palabras: 228 · Registro: formal · Posición: clara y consistente_
 
 ---
-## 13. Describir una imagen — ejemplo
+## 13. Describir una imagen  — ejemplo
 
 The image is a [bar chart / line graph / pie chart] showing [topic].
 
