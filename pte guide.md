@@ -3,7 +3,7 @@
 > Objetivo: 54+ overall · Writing ≥ 62 · Equivalente IELTS 6.0 (UK universities)
 
 ---
-he image is a [bar chart/line graph/pie chart] showing... The most significant feature is... The highest value is..., whereas the lowest value is... Overall, the image shows...
+
 ## 1. Artículos — A / AN / THE
 
 ### Regla básica
@@ -435,6 +435,11 @@ In conclusion, while practical experience undeniably enhances professional compe
 _Palabras: 228 · Registro: formal · Posición: clara y consistente_
 
 ---
+
+
+
+
+
 
 ## 13. Checklist de autocorrección antes de entregar
 
