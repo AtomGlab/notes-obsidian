@@ -435,7 +435,23 @@ In conclusion, while practical experience undeniably enhances professional compe
 _Palabras: 228 · Registro: formal · Posición: clara y consistente_
 
 ---
+## 13. Describir una imagen — ejemplo
 
+The image is a [bar chart / line graph / pie chart] showing [topic].
+
+The highest figure can be seen in [category/year] at [number/percentage], whereas the lowest figure is observed in [category/year] at [number/percentage].
+
+Overall, the chart shows a steady increase / decrease / upward trend / downward trend.
+
+Alternative conclusions:
+
+- Overall, the graph indicates a positive trend.
+    
+- Overall, the chart shows significant fluctuations over time.
+    
+- Overall, smartphones and laptops account for the majority of the total.
+    
+- Overall, the data highlights a clear difference between the categories.
 
 
 
