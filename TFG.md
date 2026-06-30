@@ -79,6 +79,9 @@ Toda la infraestructura está definida como código con Terraform y desplegada a
 │                    DynamoDB (alertas)  →  SNS  →  Email/Slack   │
 └─────────────────────────────────────────────────────────────────┘
 ```
+1.   
+    ![Hosting a Serverless Resume Website on AWS with Terraform and CI/CD - DEV Community](https://images.openai.com/static-rsc-4/vPLRAEdKLEODI6jGcZuKYjRGs0pS3YCPZVt5tjA_DVCjOEx9pPj7sW4Lc8zbZKnMfYUl440kHQ01JMPMhNMnzK5RZP9GJCWzd5V797nZb6qUA89QXIQTTmag-oC9arsJYQD-1lN_9wh96gN6Bu4lcnWN_sFfHCHNl8oFeuP3a8wfnZXXjJoXTtP6f03_XOlC?purpose=fullsize)
+    
 
 ---
 
@@ -101,6 +104,7 @@ Toda la infraestructura está definida como código con Terraform y desplegada a
 | **Notificaciones** | Amazon SNS               | Alertas de seguridad por email                    |
 | **IaC**            | Terraform                | Gestión de toda la infraestructura                |
 | **CI/CD**          | GitHub Actions           | Pipeline de despliegue automatizado               |
+|                    |                          |                                                   |
 
 ---
 
