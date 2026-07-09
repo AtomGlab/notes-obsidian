@@ -9,3 +9,6 @@ Today I've been investigating about cloud engineering/devops and I created a roa
 
 19/06/2026
 On Friday evening, I was going to grab something to eat and take a walk near the beach but suddenly I got lazy and I didn't go so I stayed at home thinking that I was going to watch a film or a show but when I was calmly scrolling on instagram reals, it appeared to me an ad of a university in the uk to get the computer science degree in 1 year because the last week I got a technical degree on DAW, I have been all the evening searching information about it.     
+
+09/07/2026
+I knew about the existence of an incredible
