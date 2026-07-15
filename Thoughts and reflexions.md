@@ -13,8 +13,7 @@ On Friday evening, I was going to grab something to eat and take a walk near the
 09/07/2026
 I knew about the existence of an incredible girl, don’t get me wrong I don’t know her yet and she doesn’t know me, so the point was that I have never felt the feeling of getting attracted in all of the senses to a person and I have seen her in photos on the social media but my intuition that barely fails, says to me that she will be the loml, the mother of my children and my best friend, you would think I’m delusional but if allah accepts my du’a, I will make that girl the happiest women of the entire existence, I’m so sure that one day this text will be read by her, If allah decides to unites us in halal until the death and then reunite in the paradise, if allah allows It. She is so special and stunning, I hope that her beauty is the refect of her soul and character, as matter of fact, she is so elegant and classy, she has such a good taste in clothes.
 
-10/01/2026
-Clothing
-Get muscles for protect her
+16/01/2026
+Tomorrow starts the intensive learning of english because I have to get a 65+ score in the pte to be accepted from the university of winchester, I had a really hard couple of days, I think is due to the lack of spirituality and conversations with god, I feel like I've betrayed him because when my du'as are responded, I ignore and live a life not fitting Islam, conversely when I'm feeling down I turn to allah but this is time has been difficult to return to allah, I must.
 
 
