@@ -19,4 +19,4 @@ Furthermore, If I'm honest, this days I felt really stressed due to the possibil
 
 
 16/07/2026
-I had a tough wee
+I had a tough week, I was preparing my pte exam and had a sad feeling, I don't know why but I switched today and I can't feel better, by the way 
