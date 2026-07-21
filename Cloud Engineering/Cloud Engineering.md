@@ -1,5 +1,6 @@
 [[Roadmap Cloud]]
 
+https://www.reddit.com/r/devops/s/Y2jCLzZz1G
 
 https://www.reddit.com/r/Cloud/comments/1uc55zd/can_a_noncoderprogrammer_become_good_in/?utm_source=share&utm_medium=ios_app&utm_name=ioscss&utm_content=2&utm_term=1
 
