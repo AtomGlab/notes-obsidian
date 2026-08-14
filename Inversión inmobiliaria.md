@@ -19,4 +19,4 @@ Beneficio neto después de gastos: 900€
 1200€/mes -> 4 años y 5 meses
 
 
-https://www.idealista.com/inmueble/111550304/çç
+https://www.idealista.com/inmueble/111550304/
