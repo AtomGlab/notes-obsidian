@@ -821,4 +821,4 @@ Cierre:   "Overall, the image conveys [conclusión — ej. a scene of
 
 ---
 
-*Fuentes: Pearson PTE Academic Test Taker Score Guide (oficial); EEC Global, Gurully, PTE Nepal, OnePTE, 79Score, One Australia Group, bestptecoaching, EasyPTE, Language Academy (guías de preparación 2026, contrastadas entre sí para las técnicas prácticas — estas no forman parte de la documentación oficial de Pearson).* 
+*Fuentes: Pearson PTE Academic Test Taker Score Guide (oficial); EEC Global, Gurully, PTE Nepal, OnePTE, 79Score, One Australia Group, bestptecoaching, EasyPTE, Language Academy (guías de preparación 2026, contrastadas entre sí para las técnicas prácticas — estas no forman parte de la documentación oficial de Pearson).*   
