@@ -66,3 +66,8 @@ Capacidad de:
 ### Resources:
 
 https://portfolio-adrianriera.com/
+
+
+Get jobs:
+
+https://www.brightnetwork.co.uk/graduate-jobs/mobilise-cloud/graduate-cloud-engineer-bridgend-2026
