@@ -5,3 +5,7 @@ THALES GROUP: We recruit DevOps Engineers and Managers at many levels so we woul
 Active interest in the cloud operating environment; able to show that you have undertaken self-development in this discipline
 
 OPTUMUK
+
+AMAZON UK
+
+TL First Consulting Group
