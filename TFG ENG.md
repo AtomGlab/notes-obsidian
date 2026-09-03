@@ -6,7 +6,7 @@
 
 ![AWS](https://img.shields.io/badge/AWS-Serverless-orange?logo=amazonaws) ![Terraform](https://img.shields.io/badge/Terraform-IaC-purple?logo=terraform) ![Python](https://img.shields.io/badge/Python-3.12-blue?logo=python) ![React](https://img.shields.io/badge/React-Frontend-61DAFB?logo=react) ![GitHub Actions](https://img.shields.io/badge/GitHub-Actions-2088FF?logo=github-actions) ![License](https://img.shields.io/badge/License-MIT-success)
 
-<p align="center"> <img src="docs/architecture/aws-diagram.png" alt="Architecture diagram" width="720"/> </p> <!-- Screenshot gallery (replace placeholders with real captures): docs/screenshots/login.png · gallery.png · alerts-dashboard.png docs/screenshots/cloudwatch-dashboard.png · cost-explorer.png docs/screenshots/github-actions-run.png · terraform-plan.png -->
+<p align="center"> <img src="docs/architecture/aws-diagram.png" alt="Architecture diagram" width="720"/> </p> 
 
 > **Note on the title:** "Production-Inspired" until the checklist below is fully true for your deployment — CI/CD running green, HTTPS end-to-end, least-privilege IAM applied, tests passing, logs retained, and **measured** (not estimated) costs. Once all of that is real and demonstrable, rename this to "Production-Grade."
 
