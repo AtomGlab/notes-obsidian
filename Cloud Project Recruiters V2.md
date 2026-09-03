@@ -14,6 +14,18 @@
 
 ---
 
+## Architecture Principles
+
+CloudSecure Photos was designed around five engineering principles:
+
+1. **Serverless by default** — no infrastructure to patch or scale manually
+2. **Security first** — least privilege, private storage, short-lived credentials
+3. **Infrastructure as Code** — nothing provisioned by hand
+4. **Event-driven automation** — detection and deployment both react to events, not polling
+5. **Observability over guesswork** — every decision backed by logs, metrics, and measured cost
+
+---
+
 <p align="center"> <img src="assets/architecture/aws-diagram.png" alt="CloudSecure Photos architecture" width="800"/> </p> <p align="center"><sub><a href="#architecture-source">View Mermaid source</a> · full breakdown in <a href="assets/architecture/">assets/architecture</a></sub></p>
 
 ### Architecture at a Glance
