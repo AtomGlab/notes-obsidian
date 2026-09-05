@@ -1,4 +1,4 @@
-# ☁️ CloudSecure Photos
+# ☁️ CloudSecure Photos V2
 
 ### Production-Inspired Serverless Photo Platform with DevSecOps Anomaly Detection on AWS
 

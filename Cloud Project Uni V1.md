@@ -1,4 +1,4 @@
-# ☁️ CloudSecure Photos — Serverless Photo Storage with Anomaly Detection
+# ☁️ CloudSecure Photos — Serverless Photo Storage with Anomaly Detection V1
 
 > Plataforma serverless de almacenamiento de fotos con sistema integrado de detección de anomalías de seguridad, desplegada completamente en AWS mediante Infrastructure as Code.
 
