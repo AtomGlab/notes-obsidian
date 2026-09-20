@@ -33,3 +33,6 @@ IPs privadas
 IPs públicas
 
 Todo lo que no pertenece a esos rangos.
+
+
+![[Pasted image 20260920224302.png]]
