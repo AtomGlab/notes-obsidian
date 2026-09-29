@@ -8,7 +8,7 @@ https://www.reddit.com/r/Cloud/comments/1uc55zd/can_a_noncoderprogrammer_become_
 
 https://www.reddit.com/r/Cloud/s/m00e1h2nNZ
 
-Julio 2026: [[Guía Linux & Git]]
+Julio 2026: [[Linux & Git]]
 ### Certifications to Get:
 
  Agosto/noviembre 2026 -> [[Solutions Architect Associate]]  
